@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  DIST: dist
+  APP: lapd
+
+tasks:
+  build:
+    desc: build the app
+    cmds:
+      - mkdir -p {{.DIST}}
+      - go mod tidy
+      - go build -o {{.DIST}}/{{.APP}}
+      - cp {{.DIST}}/{{.APP}} /usr/local/bin/{{.APP}}
+    silent: false
