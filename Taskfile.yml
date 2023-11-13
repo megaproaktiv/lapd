@@ -12,6 +12,6 @@ tasks:
     cmds:
       - mkdir -p {{.DIST}}
       - go mod tidy
-      - go build -o {{.DIST}}/{{.APP}}
+      - go build -o {{.DIST}}/{{.APP}} main/main.go
       - cp {{.DIST}}/{{.APP}} /usr/local/bin/{{.APP}}
     silent: false
