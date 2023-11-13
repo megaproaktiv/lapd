@@ -57,7 +57,7 @@ func (c *Config) GetConfig() (*Config, error) {
 //	"dist",
 func CreateConfigFile() {
 	c := Config{
-		LocalPackageName: "deploy.zip",
+		LocalPackageName: "./dist/deploy.zip",
 		S3Bucket:         "lapd",
 		Package:          "deploy.zip",
 		Functions: []FuncCfg{

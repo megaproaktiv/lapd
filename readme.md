@@ -59,3 +59,19 @@ Output
 2023/11/13 21:28:05 Deploying function lambdafunctionname
 2023/11/13 21:28:07 Purge logs
 ```
+
+## Serverless
+
+You should exclude the package directory from the serverless package.
+
+Example:
+
+```yml
+package:
+  individually: true
+  patterns:
+    - "!.venv/**"
+    - "!node_modules/**"
+    - "!tests/**"
+    - "!dist/**"
+```
