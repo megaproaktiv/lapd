@@ -49,6 +49,9 @@ func main() {
 	newDistDir(dependency_config.LocalPackageName)
 
 	currentLambdaFunction := "default"
+	if functionName != nil {
+		currentLambdaFunction = *functionName
+	}
 	// Create a zip file
 	newZipFile, err := os.Create(dependency_config.LocalPackageName)
 	if err != nil {
