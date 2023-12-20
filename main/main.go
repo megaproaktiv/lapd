@@ -169,6 +169,10 @@ func addFilesToZip(zipWriter *zip.Writer, filter lapd.Filter) {
 	include := filter.Include
 	exclude := filter.Exclude
 	filepath.Walk(filepath.Join(basePath, relativePath), func(path string, info os.FileInfo, err error) error {
+		if info == nil {
+			log.Printf("nil warning for path %v\n", path)
+			return filepath.SkipDir
+		}
 		if info.IsDir() && info.Name() == "__pycache__" {
 			return filepath.SkipDir
 		}
